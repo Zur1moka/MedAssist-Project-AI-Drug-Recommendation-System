@@ -23,6 +23,8 @@ const HistoryService = require('../services/HistoryService')
 const AllergyService = require('../services/AllergyService')
 const SymptomService = require('../services/SymptomService')
 const RecommendationService = require('../services/RecommendationService')
+const ProfileService = require('../services/profileService')
+const AdminService = require('../services/adminService')
 
 // Controllers
 const AuthController = require('../controllers/authController')
@@ -30,6 +32,8 @@ const HistoryController = require('../controllers/HistoryController')
 const AllergyController = require('../controllers/AllergyController')
 const SymptomController = require('../controllers/SymptomController')
 const RecommendationController = require('../controllers/RecommendationController')
+const ProfileController = require('../controllers/profileController')
+const AdminController = require('../controllers/adminController')
 
 const container = awilix.createContainer({
   injectionMode: awilix.InjectionMode.CLASSIC,
@@ -75,6 +79,8 @@ container.register({
   allergyService: awilix.asClass(AllergyService).singleton(),
   symptomService: awilix.asClass(SymptomService).singleton(),
   recommendationService: awilix.asClass(RecommendationService).singleton(),
+  profileService: awilix.asClass(ProfileService).singleton(),
+  adminService: awilix.asClass(AdminService).singleton(),
 
   // Controllers
   authController: awilix.asClass(AuthController).singleton(),
@@ -82,6 +88,8 @@ container.register({
   allergyController: awilix.asClass(AllergyController).singleton(),
   symptomController: awilix.asClass(SymptomController).singleton(),
   recommendationController: awilix.asClass(RecommendationController).singleton(),
+  profileController: awilix.asClass(ProfileController).singleton(),
+  adminController: awilix.asClass(AdminController).singleton(),
 })
 
 module.exports = container
