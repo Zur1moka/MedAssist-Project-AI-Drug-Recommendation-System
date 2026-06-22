@@ -34,7 +34,6 @@ const AdminLayout = () => {
 
       {/* Main content */}
       <main className="flex-1 overflow-x-hidden">
-        {/* Header */}
         <header className="glass-card border-b border-slate-800/50 px-6 py-4 flex justify-between items-center">
           <button onClick={() => setSidebarOpen(!sidebarOpen)} className="text-slate-400 hover:text-white">
             ☰
