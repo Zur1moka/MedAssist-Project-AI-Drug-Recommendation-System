@@ -18,7 +18,7 @@ import Allergies from './pages/Allergies';
 import ProfilePage from './pages/ProfilePage';
 
 // Admin
-import AdminLayout from './components/layout/AdminLayout';
+import AdminLayout from './components/Layout/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
 
 function App() {
