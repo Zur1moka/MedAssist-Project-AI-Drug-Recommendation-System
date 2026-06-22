@@ -33,15 +33,15 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/verify-otp" element={<OtpVerification />} />
 
-            {/* Protected routes - yêu cầu đăng nhập */}
-            <Route path="/symptoms" element={
-              <ProtectedRoute>
-                <SymptomInput />
-              </ProtectedRoute>
-            } />
+            {/* Protected routes */}
             <Route path="/dashboard" element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            } />
+            <Route path="/symptoms" element={
+              <ProtectedRoute>
+                <SymptomInput />
               </ProtectedRoute>
             } />
             <Route path="/suggestions" element={
@@ -59,15 +59,13 @@ function App() {
                 <Allergies />
               </ProtectedRoute>
             } />
-
-            {/* Profile Page */}
             <Route path="/profile" element={
               <ProtectedRoute>
                 <ProfilePage />
               </ProtectedRoute>
             } />
 
-            {/* Admin routes - yêu cầu role admin */}
+            {/* Admin routes */}
             <Route path="/admin" element={
               <ProtectedRoute requiredRole="admin">
                 <AdminLayout />
@@ -75,11 +73,19 @@ function App() {
             }>
               <Route index element={<AdminDashboard />} />
               <Route path="users" element={<AdminDashboard />} />
-              <Route path="*" element={<div className="text-center py-20 text-slate-500">Trang admin đang phát triển</div>} />
+              <Route path="*" element={
+                <div className="text-center py-20 text-slate-500">
+                  Trang admin đang phát triển
+                </div>
+              } />
             </Route>
 
             {/* 404 */}
-            <Route path="*" element={<div className="text-center py-20 text-slate-500">404 - Trang không tồn tại</div>} />
+            <Route path="*" element={
+              <div className="text-center py-20 text-slate-500">
+                404 - Trang không tồn tại
+              </div>
+            } />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
