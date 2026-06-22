@@ -19,7 +19,7 @@ import ProfilePage from './pages/ProfilePage';
 
 // Admin
 import AdminLayout from './components/Layout/AdminLayout';
-import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminDashboard from './pages/Admin/AdminDashboard';
 
 function App() {
   return (
