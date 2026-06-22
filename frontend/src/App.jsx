@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastProvider } from './context/ToastContext';
-import { AuthProvider } from './context/AuthContext'; 
-import ProtectedRoute from './routes/ProtectedRoute'; 
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './routes/ProtectedRoute';
+
+// Pages hiện có
 import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -11,24 +13,27 @@ import Dashboard from './pages/Dashboard';
 import DrugSuggestion from './pages/DrugSuggestion';
 import MedicalHistory from './pages/MedicalHistory';
 import Allergies from './pages/Allergies';
+
+// Pages mới
 import ProfilePage from './pages/ProfilePage';
-import AdminLayout from './components/layout/AdminLayout';
-import AdminDashboard from './pages/admin/AdminDashboard';
+
+// Admin
+import AdminLayout from './components/Layout/AdminLayout';
+import AdminDashboard from './pages/Admin/AdminDashboard';
 
 function App() {
   return (
     <ToastProvider>
-      {}
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            {}
+            {/* Public routes */}
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/verify-otp" element={<OtpVerification />} />
 
-            {}
+            {/* Protected routes - yêu cầu đăng nhập */}
             <Route path="/symptoms" element={
               <ProtectedRoute>
                 <SymptomInput />
@@ -55,14 +60,14 @@ function App() {
               </ProtectedRoute>
             } />
 
-            {}
+            {/* Profile Page */}
             <Route path="/profile" element={
               <ProtectedRoute>
                 <ProfilePage />
               </ProtectedRoute>
             } />
 
-            {}
+            {/* Admin routes - yêu cầu role admin */}
             <Route path="/admin" element={
               <ProtectedRoute requiredRole="admin">
                 <AdminLayout />
@@ -70,19 +75,11 @@ function App() {
             }>
               <Route index element={<AdminDashboard />} />
               <Route path="users" element={<AdminDashboard />} />
-              <Route path="*" element={
-                <div className="text-center py-20 text-slate-500">
-                  Trang admin đang phát triển
-                </div>
-              } />
+              <Route path="*" element={<div className="text-center py-20 text-slate-500">Trang admin đang phát triển</div>} />
             </Route>
 
-            {}
-            <Route path="*" element={
-              <div className="text-center py-20 text-slate-500">
-                404 - Trang không tồn tại
-              </div>
-            } />
+            {/* 404 */}
+            <Route path="*" element={<div className="text-center py-20 text-slate-500">404 - Trang không tồn tại</div>} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

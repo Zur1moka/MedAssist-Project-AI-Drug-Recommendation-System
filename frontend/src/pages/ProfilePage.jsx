@@ -28,12 +28,10 @@ const ProfilePage = () => {
       <Navbar />
 
       <div className="relative z-10 container mx-auto px-6 py-8 max-w-4xl space-y-6">
-        {/* Back Button */}
         <button className="text-slate-400 hover:text-white text-sm flex items-center gap-2">
           ◄ Quay lại Dashboard
         </button>
 
-        {/* Profile Header */}
         <div className="glass-card p-6 rounded-xl flex flex-col md:flex-row items-center gap-6">
           <div className="relative">
             <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-teal-500 to-sky-600 flex items-center justify-center text-3xl text-white font-bold">
@@ -50,7 +48,6 @@ const ProfilePage = () => {
           </div>
         </div>
 
-        {/* Tabs */}
         <div className="flex gap-2 border-b border-slate-800 overflow-x-auto">
           {['📝 Thông tin cá nhân', '🔑 Đổi mật khẩu', '📋 Lịch sử tra cứu', '⚙️ Cài đặt'].map((tab, i) => (
             <button key={i} className={`px-4 py-2 text-sm border-b-2 transition-all whitespace-nowrap ${i === 0 ? 'border-teal-500 text-white' : 'border-transparent text-slate-400 hover:text-white'}`}>
@@ -59,7 +56,6 @@ const ProfilePage = () => {
           ))}
         </div>
 
-        {/* Profile Info */}
         <div className="glass-card p-6 rounded-xl">
           <div className="flex justify-between items-center mb-4">
             <h3 className="font-semibold text-white">Thông tin cá nhân</h3>
